@@ -1,0 +1,11 @@
+INSERT INTO questoes (pergunta,resposta,ativa) VALUES ("A bandeira da italia tem 3 cores?",true,false);
+INSERT INTO questoes (pergunta,resposta,ativa) VALUES ("A Australia é um pais da asia?",false,false);
+INSERT INTO questoes (pergunta,resposta,ativa) VALUES ("A biblia é o livro mais vendido?",true,false);
+INSERT INTO questoes (pergunta,resposta,ativa) VALUES ("Leonardo da Vinci pintou o quadro 'Monalisa'",true,false);
+INSERT INTO questoes (pergunta,resposta,ativa) VALUES ("A montanha mais alta do brasil e o monte Roraima?",false,false);
+INSERT INTO questoes (pergunta,resposta,ativa) VALUES ("A cidade de Liverpool fica nos Estados Unidos?",false,false);
+INSERT INTO questoes (pergunta,resposta,ativa) VALUES ("O personagem do Mario do jogo Super Mario tem o chapeu verde?",false,false);
+INSERT INTO questoes (pergunta,resposta,ativa) VALUES ("A dupla Modern Talking é alema?",true,false);
+INSERT INTO questoes (pergunta,resposta,ativa) VALUES ("O cantor Chico Buarque tem uma musica chamada 'Joao e Maria'?",true,false);
+INSERT INTO questoes (pergunta,resposta,ativa) VALUES ("O tiktok surgiu em 2018?",false,false);
+INSERT INTO questoes (pergunta,resposta,ativa) VALUES ("Guatemala é o menor pais do mundo?",false,false);
