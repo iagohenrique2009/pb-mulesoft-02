@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: pb_quiz
+--   Database: pb_quiz
 -- ------------------------------------------------------
 -- Server version	8.0.30
 
@@ -15,9 +15,7 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
---
--- Table structure for table `hibernate_sequence`
---
+
 
 DROP TABLE IF EXISTS `hibernate_sequence`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -27,9 +25,7 @@ CREATE TABLE `hibernate_sequence` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `hibernate_sequence`
---
+
 
 LOCK TABLES `hibernate_sequence` WRITE;
 /*!40000 ALTER TABLE `hibernate_sequence` DISABLE KEYS */;
@@ -37,9 +33,7 @@ INSERT INTO `hibernate_sequence` VALUES (34);
 /*!40000 ALTER TABLE `hibernate_sequence` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `questoes`
---
+
 
 DROP TABLE IF EXISTS `questoes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -53,18 +47,14 @@ CREATE TABLE `questoes` (
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `questoes`
---
+
 
 LOCK TABLES `questoes` WRITE;
 /*!40000 ALTER TABLE `questoes` DISABLE KEYS */;
 /*!40000 ALTER TABLE `questoes` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `resultados`
---
+
 
 DROP TABLE IF EXISTS `resultados`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -79,9 +69,7 @@ CREATE TABLE `resultados` (
 ) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `resultados`
---
+
 
 LOCK TABLES `resultados` WRITE;
 /*!40000 ALTER TABLE `resultados` DISABLE KEYS */;
@@ -96,5 +84,3 @@ UNLOCK TABLES;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2022-09-08 19:42:00
