@@ -2,6 +2,7 @@ package controller;
 
 
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -10,6 +11,7 @@ import DAO.ResultadoDao;
 import entidades.Questao;
 import entidades.Resultado;
 import util.JPAutil;
+
 //Pega o resultado de um busca e transforma em String
 public class ConversaoBuscas {
 	
@@ -19,45 +21,40 @@ public class ConversaoBuscas {
 	AtivarDesativar ativar = new AtivarDesativar();
 
 	
-	public String[] listaPlacar(){
+	public void listaPlacar(){
 		
 		List<Resultado> todoPlacar= resultadoDao.buscarResultadoMaiorAoMenor();
-		String[] lista= new String[todoPlacar.size()];
 		
-		for(int i=0;i<todoPlacar.size();i++) {
-			
-			lista[i]="JOGADOR: "+todoPlacar.get(i).getNomeJogador()+
-					"  ACERTOS: "+todoPlacar.get(i).getAcertos()+
-					"  DATA: "+todoPlacar.get(i).getDataDaJogada().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-		}
 		
-		return lista;
+			todoPlacar.forEach(tp -> System.out.println("JOGADOR: "+tp.getNomeJogador()+
+					"  ACERTOS: "+tp.getAcertos()+
+					"  DATA: "+tp.getDataDaJogada()
+					.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
+				)); 
+		
+		
 	}
 	
-	public String[] listaQuestoes() {
+	public List<String> listaQuestoes() {
 		
-		List<Questao> todasQuestoes= perguntaDao.listaQuestoes();
-		String[] lista= new String[todasQuestoes.size()]; 
+		List<Questao> listaquestoes =perguntaDao.listaQuestoes();
+		List<String> perguntas= new ArrayList<>();
+		listaquestoes.forEach(p ->perguntas.add(p.getPergunta()));
+		return perguntas;
 		
-		for(int i=0;i<todasQuestoes.size();i++) {
-			lista[i]=todasQuestoes.get(i).getPergunta();
-			
-		}
-		return lista;
+		
 	}
 	
-	public boolean[] listaRespostas() {
+	public  boolean[] listaRespostas() {
 		
 		List<Questao> todasRespostas =perguntaDao.listaQuestoes();
-		boolean[] lista = new boolean[todasRespostas.size()];
-		
+		boolean[] respostas = new boolean[todasRespostas.size()];
 		for(int i=0;i<todasRespostas.size();i++) {
-			
-			lista[i]=todasRespostas.get(i).isResposta();
+			respostas[i]=todasRespostas.get(i).getResposta();
 			ativar.ativaQuestoes(todasRespostas.get(i));
-			
 		}
-		return lista;
+		
+		return respostas;
 	}
 	
 

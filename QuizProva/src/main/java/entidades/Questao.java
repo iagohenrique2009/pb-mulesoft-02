@@ -44,8 +44,8 @@ public class Questao {
 		this.pergunta = pergunta;
 	}
 	
-	public boolean isResposta() {
-		return resposta;
+	public boolean getResposta() {
+		return resposta ;
 	}
 	
 	public void setResposta(boolean resposta) {

@@ -1,14 +1,18 @@
 package Menu;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Scanner;
 
 import controller.Adicionar;
 import controller.AtivarDesativar;
 import controller.ConversaoBuscas;
 import entidades.Resultado;
+
 //Metodos do jogo que servem para funcionar o menu principal
+
 public class MetodosJogo {
+	
 	//menu e opcoes
 	public static void menu() {
 		
@@ -27,7 +31,7 @@ public class MetodosJogo {
 
 				if (opcao == '1') {
 
-					String[] questoes = busca.listaQuestoes();
+					List<String> questoes = busca.listaQuestoes();
 					boolean[] respostas = busca.listaRespostas();
 					jogo(questoes, respostas, sc);
 					mensagens();
@@ -37,8 +41,7 @@ public class MetodosJogo {
 
 				else if (opcao == '2') {
 
-					String[] placarJogadores = busca.listaPlacar();
-					placar(placarJogadores);
+					busca.listaPlacar();
 					mensagens();
 
 				}
@@ -69,20 +72,25 @@ public class MetodosJogo {
 
 	}
 	//Perguntas do quiz
-	public static void jogo(String[] questoes, boolean[] respostas, Scanner sc) {
+	public static void jogo(List<String> questoes, boolean[] respostas, Scanner sc) {
 		int pontuacaoAcertos = 0, pontuacaoErros = 0;
 		LocalDate diaHoje = LocalDate.now();
+		int questaoCont=0;
 
 		System.out.println("Digite o seu nome: ");
-		String nome = sc.nextLine();
+		String nome;
+		do {
+			nome = sc.nextLine();
+		}while(nome.isBlank());
+		
 
-		for (int i = 0; i < questoes.length; i++) {
+		for(String questao : questoes) {
 
-			System.out.println("Questao " + (i + 1) + ": " + questoes[i]);
+			System.out.println("Questao " + (questaoCont) + ": " + questao);
 			System.out.println("Respoda com S ou N: ");
 			char resposta = sc.next().toLowerCase().charAt(0);
 			
-			if (acertoOuErro(resposta, respostas[i])) {
+			if (acertoOuErro(resposta, respostas[questaoCont])) {
 				
 				pontuacaoAcertos += 1;
 				System.out.println("Você Acertou!");
@@ -93,7 +101,7 @@ public class MetodosJogo {
 				System.out.println("Você errou!");
 				
 			}
-
+			questaoCont++;
 		}
 		System.out.println("Sua pontuação " + nome + " foi: ");
 
@@ -115,7 +123,7 @@ public class MetodosJogo {
 
 	}
 	//Metodo para saber se a pessoa acertou ou errou
-	public static boolean acertoOuErro(char c, boolean respostaPergunta) {
+	public static boolean acertoOuErro(char c, boolean respostas) {
 		boolean respostaUsuario;
 		
 		if (c == 's') {
@@ -130,7 +138,7 @@ public class MetodosJogo {
 			return false;
 		}
 		
-		if (respostaUsuario == respostaPergunta) {
+		if (respostas==respostaUsuario) {
 			return true;
 		}
 		
